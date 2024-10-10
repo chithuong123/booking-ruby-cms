@@ -1,0 +1,1221 @@
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[35m (353.4ms)[0m  [1m[35mCREATE DATABASE "wedding-booking" ENCODING = 'unicode'[0m
+  [1m[35m (67.2ms)[0m  [1m[35mCREATE DATABASE "cms_test" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3454949129859621030)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-10-04 08:38:17.641156', '2024-10-04 08:38:17.641158') RETURNING "key"[0m
+Migrating to CreateAdministrators (20240927063405)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "administrators" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "remember_token" character varying, "remember_token_expires_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240927063405') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAgencyIdToAdmin (20240927160607)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "administrators" ADD "agency_id" integer[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "administrators" ADD "role" integer DEFAULT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240927160607') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImagesToServices (20240930062830)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "services" ADD "images" character varying[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3454949129859621030)[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (7958.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "wedding-booking"[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (54.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "wedding-booking"[0m
+  [1m[35m (32.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cms_test"[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[35m (191.1ms)[0m  [1m[35mCREATE DATABASE "wedding-booking" ENCODING = 'unicode'[0m
+  [1m[35m (62.1ms)[0m  [1m[35mCREATE DATABASE "cms_test" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3454949129859621030)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-10-04 08:43:19.136941', '2024-10-04 08:43:19.136943') RETURNING "key"[0m
+Migrating to CreateAdministrators (20240927063405)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "administrators" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "remember_token" character varying, "remember_token_expires_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240927063405') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAgencyIdToAdmin (20240927160607)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "administrators" ADD "agency_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "administrators" ADD "role" integer DEFAULT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240927160607') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImagesToServices (20240930062830)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "services" ADD "images" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240930062830') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeImagesToBeJsonInServices (20240930062934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.0ms)[0m  [1m[35mALTER TABLE "services" ALTER COLUMN "images" TYPE json USING CAST(images AS json)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240930062934') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImagesToAgencies (20241002062830)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "agencies" ADD "image" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241002062830') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3454949129859621030)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (52.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "wedding-booking"[0m
+  [1m[35m (32.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cms_test"[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[35m (76.7ms)[0m  [1m[35mCREATE DATABASE "wedding-booking" ENCODING = 'unicode'[0m
+  [1m[35m (50.4ms)[0m  [1m[35mCREATE DATABASE "cms_test" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3454949129859621030)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-10-04 08:43:52.092839', '2024-10-04 08:43:52.092841') RETURNING "key"[0m
+Migrating to CreateAdministrators (20240927063405)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "administrators" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "remember_token" character varying, "remember_token_expires_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240927063405') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAgencyIdToAdmin (20240927160607)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "administrators" ADD "agency_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "administrators" ADD "role" integer DEFAULT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240927160607') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImagesToServices (20240930062830)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "services" ADD "images" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240930062830') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeImagesToBeJsonInServices (20240930062934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.6ms)[0m  [1m[35mALTER TABLE "services" ALTER COLUMN "images" TYPE json USING CAST(images AS json)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240930062934') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImagesToAgencies (20241002062830)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "agencies" ADD "image" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241002062830') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(3454949129859621030)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (51.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "wedding-booking"[0m
+  [1m[35m (30.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cms_test"[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[35m (91.4ms)[0m  [1m[35mCREATE DATABASE "wedding-booking" ENCODING = 'unicode'[0m
+  [1m[35m (46.1ms)[0m  [1m[35mCREATE DATABASE "cms_test" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[36mService Load (0.5ms)[0m  [1m[34mSELECT "services".* FROM "services" ORDER BY "services"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3454949129859621030)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-10-04 08:44:48.348002', '2024-10-04 08:44:48.348004') RETURNING "key"[0m
+Migrating to CreateAdministrators (20240927063405)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "administrators" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "remember_token" character varying, "remember_token_expires_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240927063405') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAgencyIdToAdmin (20240927160607)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "administrators" ADD "agency_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "administrators" ADD "role" integer DEFAULT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240927160607') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImagesToServices (20240930062830)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "services" ADD "images" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240930062830') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeImagesToBeJsonInServices (20240930062934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.8ms)[0m  [1m[35mALTER TABLE "services" ALTER COLUMN "images" TYPE json USING CAST(images AS json)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240930062934') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImagesToAgencies (20241002062830)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "agencies" ADD "image" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241002062830') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3454949129859621030)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, {:superadmin=>0, :agency=>1}
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, [:superadmin, :agency]
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+Started GET "/admin" for ::1 at 2024-10-06 17:44:18 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Trestle::DashboardController#index as HTML
+Redirected to http://localhost:3002/admin/login
+Filter chain halted as :require_authenticated_user rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/login" for ::1 at 2024-10-06 17:44:18 +0700
+Processing by Trestle::Auth::SessionsController#new as HTML
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/_form.html.erb (Duration: 5.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth (Duration: 16.7ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb (Duration: 671.4ms | GC: 52.3ms)
+Completed 200 OK in 711ms (Views: 677.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 53.2ms)
+
+
+Started POST "/admin/login" for ::1 at 2024-10-06 17:44:25 +0700
+Processing by Trestle::Auth::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mAdministrator Load (0.8ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/login
+Completed 302 Found in 894ms (ActiveRecord: 14.6ms (1 query, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/admin/login" for ::1 at 2024-10-06 17:44:26 +0700
+Processing by Trestle::Auth::SessionsController#new as HTML
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/_form.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth (Duration: 1.0ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb (Duration: 5.7ms | GC: 0.3ms)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, [:superadmin, :agency]
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdministrator Create (3.3ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "password_digest", "first_name", "last_name", "remember_token", "remember_token_expires_at", "created_at", "updated_at", "agency_id", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["first_name", nil], ["last_name", nil], ["remember_token", "[FILTERED]"], ["remember_token_expires_at", "[FILTERED]"], ["created_at", "2024-10-06 10:45:10.541544"], ["updated_at", "2024-10-06 10:45:10.541544"], ["agency_id", nil], ["role", 1]]
+  [1m[36mAgency Create (2.3ms)[0m  [1m[32mINSERT INTO "agencies" ("user_id", "administrator_id", "name", "description", "address", "phone_number", "created_at", "updated_at", "image") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", nil], ["administrator_id", 1], ["name", " 's Agency"], ["description", nil], ["address", nil], ["phone_number", nil], ["created_at", "2024-10-06 10:45:10.561781"], ["updated_at", "2024-10-06 10:45:10.561781"], ["image", nil]]
+  [1m[36mAdministrator Update (2.3ms)[0m  [1m[33mUPDATE "administrators" SET "updated_at" = $1, "agency_id" = $2 WHERE "administrators"."id" = $3[0m  [["updated_at", "2024-10-06 10:45:10.565167"], ["agency_id", 1], ["id", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/admin/login" for ::1 at 2024-10-06 17:45:15 +0700
+Processing by Trestle::Auth::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mAdministrator Load (0.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/
+Completed 302 Found in 619ms (ActiveRecord: 3.7ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/admin/" for ::1 at 2024-10-06 17:45:16 +0700
+Processing by Trestle::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/bookings
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/admin/bookings" for ::1 at 2024-10-06 17:45:16 +0700
+Processing by BookingsAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  [1m[36mBooking Load (0.5ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 3.7ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 11.1ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 13.0ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 2.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 24.8ms | GC: 0.5ms)
+Completed 200 OK in 39ms (Views: 25.4ms | ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdministrator Update (1.1ms)[0m  [1m[33mUPDATE "administrators" SET "updated_at" = $1, "role" = $2 WHERE "administrators"."id" = $3[0m  [["updated_at", "2024-10-06 10:45:27.020946"], ["role", 0], ["id", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/bookings" for ::1 at 2024-10-06 17:45:27 +0700
+Processing by BookingsAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.4ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 5.0ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 9.1ms | GC: 0.6ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 9.9ms | GC: 0.6ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 2.1ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 21.1ms | GC: 1.1ms)
+Completed 200 OK in 27ms (Views: 21.1ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/admin/auth/administrators" for ::1 at 2024-10-06 17:45:28 +0700
+Processing by Auth::AdministratorsAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.4ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 6.0ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 9.8ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 10.9ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.5ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.6ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 21.1ms | GC: 0.9ms)
+Completed 200 OK in 27ms (Views: 21.0ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/admin/auth/administrators/new" for ::1 at 2024-10-06 17:45:31 +0700
+Processing by Auth::AdministratorsAdmin::AdminController#new as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/new.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/_form.html.erb within trestle/application/_layout (Duration: 4.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/new.html.erb within layouts/trestle/admin (Duration: 6.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 19.3ms | GC: 3.2ms)
+Completed 200 OK in 24ms (Views: 19.5ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 3.2ms)
+
+
+Started POST "/admin/auth/administrators" for ::1 at 2024-10-06 17:45:37 +0700
+Processing by Auth::AdministratorsAdmin::AdminController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "administrator"=>{"email"=>"[FILTERED]", "first_name"=>"pike", "last_name"=>"pike", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "button"=>""}
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdministrator Create (2.1ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "password_digest", "first_name", "last_name", "remember_token", "remember_token_expires_at", "created_at", "updated_at", "agency_id", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["first_name", "pike"], ["last_name", "pike"], ["remember_token", "[FILTERED]"], ["remember_token_expires_at", "[FILTERED]"], ["created_at", "2024-10-06 10:45:38.134226"], ["updated_at", "2024-10-06 10:45:38.134226"], ["agency_id", nil], ["role", 1]]
+  [1m[36mAgency Create (1.3ms)[0m  [1m[32mINSERT INTO "agencies" ("user_id", "administrator_id", "name", "description", "address", "phone_number", "created_at", "updated_at", "image") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", nil], ["administrator_id", 2], ["name", "pike pike's Agency"], ["description", nil], ["address", nil], ["phone_number", nil], ["created_at", "2024-10-06 10:45:38.148662"], ["updated_at", "2024-10-06 10:45:38.148662"], ["image", nil]]
+  ↳ app/models/administrator.rb:31:in `create_associated_agency'
+  [1m[36mAdministrator Update (0.4ms)[0m  [1m[33mUPDATE "administrators" SET "updated_at" = $1, "agency_id" = $2 WHERE "administrators"."id" = $3[0m  [["updated_at", "2024-10-06 10:45:38.151034"], ["agency_id", 2], ["id", 2]]
+  ↳ app/models/administrator.rb:33:in `create_associated_agency'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3002/admin/auth/administrators/2
+Completed 302 Found in 462ms (ActiveRecord: 11.2ms (4 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/admin/auth/administrators/2" for ::1 at 2024-10-06 17:45:38 +0700
+Processing by Auth::AdministratorsAdmin::AdminController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/show.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.4ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_alert.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/_form.html.erb within trestle/application/_layout (Duration: 3.5ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/show.html.erb within layouts/trestle/admin (Duration: 5.1ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 11.6ms | GC: 0.5ms)
+Completed 200 OK in 16ms (Views: 11.8ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/admin/agencies" for ::1 at 2024-10-06 17:45:40 +0700
+Processing by AgenciesAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mAgency Load (0.5ms)[0m  [1m[34mSELECT "agencies".* FROM "agencies" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 7.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 11.9ms | GC: 0.5ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 13.0ms | GC: 0.5ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.8ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 26.6ms | GC: 4.2ms)
+Completed 200 OK in 32ms (Views: 26.5ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 4.2ms)
+
+
+Started DELETE "/admin/agencies/1" for ::1 at 2024-10-06 17:45:46 +0700
+Processing by AgenciesAdmin::AdminController#destroy as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAgency Load (0.3ms)[0m  [1m[34mSELECT "agencies".* FROM "agencies" WHERE "agencies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.5ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."agency_id" = $1[0m  [["agency_id", 1]]
+  [1m[36mAgency Destroy (0.3ms)[0m  [1m[31mDELETE FROM "agencies" WHERE "agencies"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/destroy.turbo_stream.erb
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_alert.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/destroy.turbo_stream.erb (Duration: 3.0ms | GC: 0.2ms)
+Completed 200 OK in 37ms (Views: 5.6ms | ActiveRecord: 8.5ms (4 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/admin/agencies" for ::1 at 2024-10-06 17:45:46 +0700
+Processing by AgenciesAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mAgency Load (0.2ms)[0m  [1m[34mSELECT "agencies".* FROM "agencies" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 3.6ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 5.1ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 5.4ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.2ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.5ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 12.3ms | GC: 0.5ms)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/admin/agencies" for ::1 at 2024-10-06 17:45:47 +0700
+Processing by AgenciesAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.5ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mAgency Load (0.4ms)[0m  [1m[34mSELECT "agencies".* FROM "agencies" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 7.0ms | GC: 0.5ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 9.8ms | GC: 0.7ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 10.4ms | GC: 0.7ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 1.0ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 24.7ms | GC: 3.7ms)
+Completed 200 OK in 29ms (Views: 24.6ms | ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 3.7ms)
+
+
+Started GET "/admin/auth/administrators" for ::1 at 2024-10-06 17:45:48 +0700
+Processing by Auth::AdministratorsAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 2.1ms | GC: 0.6ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mAdministrator Load (0.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 7.1ms | GC: 0.7ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 10.8ms | GC: 1.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 11.5ms | GC: 1.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.7ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.2ms | GC: 0.1ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 21.9ms | GC: 2.0ms)
+Completed 200 OK in 28ms (Views: 21.8ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 2.6ms)
+
+
+Started GET "/admin/services" for ::1 at 2024-10-06 17:45:49 +0700
+Processing by ServicesAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  [1m[36mService Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "services" WHERE "services"."agency_id" = $1[0m  [["agency_id", 1]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/_scopes.html.erb (Duration: 21.3ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.3ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mService Load (0.4ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."agency_id" = $1 LIMIT $2 OFFSET $3[0m  [["agency_id", 1], ["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 5.1ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 8.3ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 32.5ms | GC: 0.6ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 40.9ms | GC: 1.1ms)
+Completed 200 OK in 49ms (Views: 40.4ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/admin/bookings" for ::1 at 2024-10-06 17:45:49 +0700
+Processing by BookingsAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 2.8ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 4.8ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 5.3ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 12.3ms | GC: 0.2ms)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/admin" for ::1 at 2024-10-06 17:46:10 +0700
+Processing by Trestle::DashboardController#index as HTML
+Redirected to http://localhost:3002/admin/login
+Filter chain halted as :require_authenticated_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/login" for ::1 at 2024-10-06 17:46:10 +0700
+Processing by Trestle::Auth::SessionsController#new as HTML
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/_form.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth (Duration: 1.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb (Duration: 8.9ms | GC: 0.7ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.3ms)
+
+
+Started POST "/admin/login" for ::1 at 2024-10-06 17:46:15 +0700
+Processing by Trestle::Auth::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/login
+Completed 302 Found in 439ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/login" for ::1 at 2024-10-06 17:46:16 +0700
+Processing by Trestle::Auth::SessionsController#new as HTML
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/_form.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth (Duration: 1.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb (Duration: 6.6ms | GC: 0.5ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started POST "/admin/login" for ::1 at 2024-10-06 17:46:18 +0700
+Processing by Trestle::Auth::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/
+Completed 302 Found in 441ms (ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/" for ::1 at 2024-10-06 17:46:19 +0700
+Processing by Trestle::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/bookings
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/admin/bookings" for ::1 at 2024-10-06 17:46:19 +0700
+Processing by BookingsAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.1ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 2.8ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 4.5ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 4.8ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 12.2ms | GC: 0.3ms)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/admin/services" for ::1 at 2024-10-06 17:46:20 +0700
+Processing by ServicesAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  [1m[36mService Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "services" WHERE "services"."agency_id" = $1[0m  [["agency_id", 2]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/_scopes.html.erb (Duration: 5.0ms | GC: 0.8ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.2ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mService Load (0.4ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."agency_id" = $1 LIMIT $2 OFFSET $3[0m  [["agency_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 5.2ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 8.0ms | GC: 0.6ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 14.0ms | GC: 1.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.7ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 23.9ms | GC: 2.1ms)
+Completed 200 OK in 28ms (Views: 23.4ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 2.1ms)
+
+
+Started GET "/admin/services/new" for ::1 at 2024-10-06 17:46:21 +0700
+Processing by ServicesAdmin::AdminController#new as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/new.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/_form.html.erb within trestle/application/_layout (Duration: 19.1ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/new.html.erb within layouts/trestle/admin (Duration: 21.8ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 29.0ms | GC: 0.4ms)
+Completed 200 OK in 39ms (Views: 29.3ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started POST "/admin/services" for ::1 at 2024-10-06 17:47:04 +0700
+Processing by ServicesAdmin::AdminController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "service"=>{"name"=>"pike", "description"=>"pike", "price"=>"123123", "agency_id"=>"2", "images"=>["", #<ActionDispatch::Http::UploadedFile:0x0000000109ddf6a8 @tempfile=#<Tempfile:/var/folders/tf/005p3_zd7v53vlk066f7vgbr0000gn/T/RackMultipart20241006-60350-lgjkye.jpg>, @content_type="image/jpeg", @original_filename="2023-07-12 09.25.29.jpg", @headers="Content-Disposition: form-data; name=\"service[images][]\"; filename=\"2023-07-12 09.25.29.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x0000000109ddf658 @tempfile=#<Tempfile:/var/folders/tf/005p3_zd7v53vlk066f7vgbr0000gn/T/RackMultipart20241006-60350-gabjly.jpg>, @content_type="image/jpeg", @original_filename="354478966_919988772433747_3091608229651307107_n.jpg", @headers="Content-Disposition: form-data; name=\"service[images][]\"; filename=\"354478966_919988772433747_3091608229651307107_n.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "button"=>""}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAgency Load (0.4ms)[0m  [1m[34mSELECT "agencies".* FROM "agencies" WHERE "agencies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mService Create (3.7ms)[0m  [1m[32mINSERT INTO "services" ("agency_id", "name", "description", "price", "created_at", "updated_at", "images") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["agency_id", 2], ["name", "pike"], ["description", "pike"], ["price", "123123.0"], ["created_at", "2024-10-06 10:47:04.487368"], ["updated_at", "2024-10-06 10:47:04.487368"], ["images", "[\"tmp/uploads/b29776e9-dd62-4aa7-98d5-4e7d52d21fbe/images.jpg\",\"tmp/uploads/2dcee1b7-a3e3-4e3a-b647-dafd53be9b56/images.jpg\"]"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 4.8ms (3 queries, 0 cached) | GC: 3.1ms)
+
+
+  
+CloudinaryException (Must supply api_key):
+  
+cloudinary (2.2.0) lib/cloudinary/uploader.rb:361:in `call_api'
+cloudinary (2.2.0) lib/cloudinary/uploader.rb:59:in `upload'
+cloudinary (2.2.0) lib/cloudinary/carrier_wave/storage.rb:40:in `store!'
+carrierwave (3.0.7) lib/carrierwave/uploader/store.rb:83:in `block in store!'
+carrierwave (3.0.7) lib/carrierwave/uploader/callbacks.rb:15:in `with_callbacks'
+carrierwave (3.0.7) lib/carrierwave/uploader/store.rb:82:in `store!'
+cloudinary (2.2.0) lib/cloudinary/carrier_wave/process.rb:163:in `store!'
+carrierwave (3.0.7) lib/carrierwave/mounter.rb:142:in `each'
+carrierwave (3.0.7) lib/carrierwave/mounter.rb:142:in `store!'
+carrierwave (3.0.7) lib/carrierwave/mount.rb:368:in `store_images!'
+activesupport (7.2.1) lib/active_support/callbacks.rb:362:in `block in make_lambda'
+activesupport (7.2.1) lib/active_support/callbacks.rb:208:in `call'
+activesupport (7.2.1) lib/active_support/callbacks.rb:563:in `block in invoke_after'
+activesupport (7.2.1) lib/active_support/callbacks.rb:563:in `each'
+activesupport (7.2.1) lib/active_support/callbacks.rb:563:in `invoke_after'
+activesupport (7.2.1) lib/active_support/callbacks.rb:111:in `run_callbacks'
+activesupport (7.2.1) lib/active_support/callbacks.rb:913:in `_run_save_callbacks'
+activerecord (7.2.1) lib/active_record/callbacks.rb:441:in `create_or_update'
+activerecord (7.2.1) lib/active_record/timestamp.rb:127:in `create_or_update'
+activerecord (7.2.1) lib/active_record/persistence.rb:393:in `save'
+activerecord (7.2.1) lib/active_record/validations.rb:48:in `save'
+activerecord (7.2.1) lib/active_record/transactions.rb:362:in `block in save'
+activerecord (7.2.1) lib/active_record/transactions.rb:418:in `block (2 levels) in with_transaction_returning_status'
+activerecord (7.2.1) lib/active_record/connection_adapters/abstract/transaction.rb:616:in `block in within_new_transaction'
+activesupport (7.2.1) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.2.1) lib/active_record/connection_adapters/abstract/transaction.rb:613:in `within_new_transaction'
+activerecord (7.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:361:in `transaction'
+activerecord (7.2.1) lib/active_record/transactions.rb:414:in `block in with_transaction_returning_status'
+activerecord (7.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:395:in `with_connection'
+activerecord (7.2.1) lib/active_record/connection_handling.rb:296:in `with_connection'
+activerecord (7.2.1) lib/active_record/transactions.rb:410:in `with_transaction_returning_status'
+activerecord (7.2.1) lib/active_record/transactions.rb:362:in `save'
+activerecord (7.2.1) lib/active_record/suppressor.rb:52:in `save'
+trestle (0.10.1) lib/trestle/adapters/active_record_adapter.rb:21:in `save_instance'
+trestle (0.10.1) lib/trestle/resource/adapter_methods.rb:14:in `save_instance'
+trestle (0.10.1) app/controllers/concerns/trestle/resource/controller/data_methods.rb:35:in `save_instance'
+trestle (0.10.1) app/controllers/concerns/trestle/resource/controller/actions.rb:25:in `create'
+actionpack (7.2.1) lib/action_controller/metal/basic_implicit_render.rb:8:in `send_action'
+actionpack (7.2.1) lib/abstract_controller/base.rb:226:in `process_action'
+actionpack (7.2.1) lib/action_controller/metal/rendering.rb:193:in `process_action'
+actionpack (7.2.1) lib/abstract_controller/callbacks.rb:261:in `block in process_action'
+activesupport (7.2.1) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+trestle-auth (0.5.0) lib/trestle/auth/controller/time_zone.rb:13:in `block in set_time_zone'
+activesupport (7.2.1) lib/active_support/core_ext/time/zones.rb:65:in `use_zone'
+trestle-auth (0.5.0) lib/trestle/auth/controller/time_zone.rb:13:in `set_time_zone'
+activesupport (7.2.1) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+trestle-auth (0.5.0) lib/trestle/auth/controller/locale.rb:13:in `block in set_locale'
+i18n (1.14.6) lib/i18n.rb:353:in `with_locale'
+trestle-auth (0.5.0) lib/trestle/auth/controller/locale.rb:13:in `set_locale'
+activesupport (7.2.1) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+turbo-rails (2.0.10) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.10) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.2.1) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.2.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (7.2.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (7.2.1) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.2.1) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.2.1) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.2.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (7.2.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (7.2.1) lib/action_controller/metal/instrumentation.rb:77:in `block in process_action'
+activesupport (7.2.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (7.2.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.2.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (7.2.1) lib/action_controller/metal/instrumentation.rb:76:in `process_action'
+actionpack (7.2.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.2.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (7.2.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (7.2.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (7.2.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:896:in `call'
+railties (7.2.1) lib/rails/engine.rb:535:in `call'
+railties (7.2.1) lib/rails/railtie.rb:226:in `public_send'
+railties (7.2.1) lib/rails/railtie.rb:226:in `method_missing'
+actionpack (7.2.1) lib/action_dispatch/routing/mapper.rb:33:in `block in <class:Constraints>'
+actionpack (7.2.1) lib/action_dispatch/routing/mapper.rb:62:in `serve'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:896:in `call'
+rack (3.1.7) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:43:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+actionpack (7.2.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.2.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.2.1) lib/active_record/migration.rb:674:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (7.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (7.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (7.2.1) lib/rails/rack/logger.rb:29:in `call'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/request_id.rb:33:in `call'
+rack (3.1.7) lib/rack/method_override.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (7.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.4.3) lib/puma/configuration.rb:272:in `call'
+puma (6.4.3) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.3) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.3) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.3) lib/puma/server.rb:464:in `process_client'
+puma (6.4.3) lib/puma/server.rb:245:in `block in run'
+puma (6.4.3) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/admin/services/new" for ::1 at 2024-10-06 17:47:27 +0700
+Processing by ServicesAdmin::AdminController#new as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/new.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 0.9ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/_form.html.erb within trestle/application/_layout (Duration: 3.1ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/new.html.erb within layouts/trestle/admin (Duration: 5.3ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.3ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 15.7ms | GC: 0.9ms)
+Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Started POST "/admin/services" for ::1 at 2024-10-06 17:47:30 +0700
+Processing by ServicesAdmin::AdminController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "service"=>{"name"=>"pike", "description"=>"pike", "price"=>"123", "agency_id"=>"2", "images"=>[""]}, "button"=>""}
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAgency Load (0.4ms)[0m  [1m[34mSELECT "agencies".* FROM "agencies" WHERE "agencies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mService Create (0.4ms)[0m  [1m[32mINSERT INTO "services" ("agency_id", "name", "description", "price", "created_at", "updated_at", "images") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["agency_id", 2], ["name", "pike"], ["description", "pike"], ["price", "123.0"], ["created_at", "2024-10-06 10:47:30.875255"], ["updated_at", "2024-10-06 10:47:30.875255"], ["images", nil]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3002/admin/services/2
+Completed 302 Found in 18ms (ActiveRecord: 2.7ms (3 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/admin/services/2" for ::1 at 2024-10-06 17:47:30 +0700
+Processing by ServicesAdmin::AdminController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/show.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_alert.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/_form.html.erb within trestle/application/_layout (Duration: 2.3ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/show.html.erb within layouts/trestle/admin (Duration: 3.7ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 10.8ms | GC: 0.5ms)
+Completed 200 OK in 16ms (Views: 11.2ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/admin/services" for ::1 at 2024-10-06 17:47:32 +0700
+Processing by ServicesAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  [1m[36mService Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "services" WHERE "services"."agency_id" = $1[0m  [["agency_id", 2]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/_scopes.html.erb (Duration: 4.0ms | GC: 0.5ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.8ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mService Load (0.4ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."agency_id" = $1 LIMIT $2 OFFSET $3[0m  [["agency_id", 2], ["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mAgency Load (0.3ms)[0m  [1m[34mSELECT "agencies".* FROM "agencies" WHERE "agencies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 15.2ms | GC: 0.9ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 18.2ms | GC: 1.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 22.9ms | GC: 1.7ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 31.4ms | GC: 2.2ms)
+Completed 200 OK in 36ms (Views: 30.6ms | ActiveRecord: 1.5ms (4 queries, 0 cached) | GC: 2.2ms)
+
+
+Started GET "/admin" for ::1 at 2024-10-06 17:52:16 +0700
+Processing by Trestle::DashboardController#index as HTML
+Redirected to http://localhost:3002/admin/login
+Filter chain halted as :require_authenticated_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/login" for ::1 at 2024-10-06 17:52:16 +0700
+Processing by Trestle::Auth::SessionsController#new as HTML
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/_form.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth (Duration: 1.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb (Duration: 9.2ms | GC: 0.3ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started POST "/admin/login" for ::1 at 2024-10-06 17:52:22 +0700
+Processing by Trestle::Auth::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/
+Completed 302 Found in 440ms (ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/admin/" for ::1 at 2024-10-06 17:52:22 +0700
+Processing by Trestle::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/bookings
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/admin/bookings" for ::1 at 2024-10-06 17:52:22 +0700
+Processing by BookingsAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mBooking Load (0.7ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mService Load (0.5ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/admin/bookings_admin.rb:10:in `block (3 levels) in <main>'
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 24.6ms | GC: 0.6ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 26.3ms | GC: 0.7ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 26.7ms | GC: 0.7ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 33.3ms | GC: 0.8ms)
+Completed 200 OK in 36ms (Views: 28.0ms | ActiveRecord: 5.9ms (3 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/admin" for ::1 at 2024-10-06 18:32:45 +0700
+Processing by Trestle::DashboardController#index as HTML
+Redirected to http://localhost:3002/admin/login
+Filter chain halted as :require_authenticated_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/login" for ::1 at 2024-10-06 18:32:45 +0700
+Processing by Trestle::Auth::SessionsController#new as HTML
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/_form.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth (Duration: 2.5ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb (Duration: 13.2ms | GC: 1.2ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.2ms)
+
+
+Started POST "/admin/login" for ::1 at 2024-10-06 18:32:48 +0700
+Processing by Trestle::Auth::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mAdministrator Load (1.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/
+Completed 302 Found in 452ms (ActiveRecord: 7.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/" for ::1 at 2024-10-06 18:32:48 +0700
+Processing by Trestle::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/agencies
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/agencies" for ::1 at 2024-10-06 18:32:48 +0700
+Processing by AgenciesAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mAgency Load (0.5ms)[0m  [1m[34mSELECT "agencies".* FROM "agencies" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 4.9ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 6.7ms | GC: 0.4ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 7.4ms | GC: 0.7ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.5ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 15.9ms | GC: 1.2ms)
+Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/admin/bookings" for ::1 at 2024-10-06 18:32:50 +0700
+Processing by BookingsAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.7ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mBooking Load (0.6ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mService Load (0.8ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/admin/bookings_admin.rb:10:in `block (3 levels) in <main>'
+  [1m[36mCACHE Service Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/admin/bookings_admin.rb:10:in `block (3 levels) in <main>'
+  [1m[36mCACHE Service Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/admin/bookings_admin.rb:10:in `block (3 levels) in <main>'
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 13.8ms | GC: 0.1ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 17.2ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 17.8ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 26.8ms | GC: 0.4ms)
+Completed 200 OK in 31ms (Views: 25.3ms | ActiveRecord: 2.3ms (5 queries, 2 cached) | GC: 0.4ms)
+
+
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, [:superadmin, :agency]
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, [:superadmin, :agency]
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)
+Started GET "/admin" for ::1 at 2024-10-06 19:16:39 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Trestle::DashboardController#index as HTML
+Redirected to http://localhost:3002/admin/login
+Filter chain halted as :require_authenticated_user rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/admin/login" for ::1 at 2024-10-06 19:16:39 +0700
+Processing by Trestle::Auth::SessionsController#new as HTML
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/_form.html.erb (Duration: 2.3ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/sessions/new.html.erb within layouts/trestle/auth (Duration: 6.4ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/layouts/trestle/auth.html.erb (Duration: 87.5ms | GC: 3.1ms)
+Completed 200 OK in 100ms (Views: 89.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 3.5ms)
+
+
+Started POST "/admin/login" for ::1 at 2024-10-06 19:16:42 +0700
+Processing by Trestle::Auth::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mAdministrator Load (1.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/
+Completed 302 Found in 488ms (ActiveRecord: 30.7ms (1 query, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/admin/" for ::1 at 2024-10-06 19:16:43 +0700
+Processing by Trestle::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3002/admin/agencies
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/admin/agencies" for ::1 at 2024-10-06 19:16:43 +0700
+Processing by AgenciesAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  [1m[36mAgency Load (0.7ms)[0m  [1m[34mSELECT "agencies".* FROM "agencies" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 12.3ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 19.6ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 21.4ms | GC: 0.3ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 2.3ms | GC: 0.2ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 33.0ms | GC: 0.6ms)
+Completed 200 OK in 38ms (Views: 30.1ms | ActiveRecord: 4.7ms (2 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/admin/bookings" for ::1 at 2024-10-06 19:16:44 +0700
+Processing by BookingsAdmin::AdminController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb
+  Rendering /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_header.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/flash/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_utilities.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_tabs.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mBooking Load (1.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mService Load (0.7ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/admin/bookings_admin.rb:10:in `block (3 levels) in <main>'
+  [1m[36mCACHE Service Load (0.1ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/admin/bookings_admin.rb:10:in `block (3 levels) in <main>'
+  [1m[36mCACHE Service Load (0.1ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/admin/bookings_admin.rb:10:in `block (3 levels) in <main>'
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_table.html.erb (Duration: 78.8ms | GC: 30.5ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/table/_pagination.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/application/_layout.html.erb (Duration: 82.4ms | GC: 30.5ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/resource/index.html.erb within layouts/trestle/admin (Duration: 83.2ms | GC: 30.5ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/_theme.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_title.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_sidebar.html.erb (Duration: 2.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-auth-0.5.0/app/views/trestle/auth/_userbox.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_header.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/trestle/shared/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/pike/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/trestle-0.10.1/app/views/layouts/trestle/admin.html.erb (Duration: 95.0ms | GC: 31.1ms)
+Completed 200 OK in 102ms (Views: 85.8ms | ActiveRecord: 9.9ms (5 queries, 2 cached) | GC: 31.4ms)
+
+
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, [:superadmin, :agency]
+ (called from <class:Administrator> at /Users/pike/workspace/booking-app/booking-ruby-cms/app/models/administrator.rb:26)

@@ -8,8 +8,8 @@
 #  image            :string
 #  name             :string(255)
 #  phone_number     :string(255)
-#  created_at       :timestamptz
-#  updated_at       :timestamptz
+#  created_at       :timestamptz      not null
+#  updated_at       :timestamptz      not null
 #  administrator_id :integer
 #  user_id          :integer
 #
