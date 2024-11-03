@@ -1,9 +1,10 @@
 Trestle.resource(:services, model: Service) do
   menu do
     group :content, priority: :first do
-      item :services, icon: "fas fa-concierge-bell"
+      item :services, icon: "fas fa-concierge-bell", unless: -> { current_user.superadmin? }
     end
   end
+
 
   # Set default scope to filter services belonging to current_user
   scope :all, default: true do |params|

@@ -2,18 +2,17 @@
 #
 # Table name: users
 #
-#  id           :integer          not null, primary key
-#  email        :string(255)
-#  password     :string(255)
-#  phone_number :string(255)
-#  role         :string(255)
-#  username     :string(255)
-#  created_at   :timestamptz      not null
-#  updated_at   :timestamptz      not null
+#  id         :integer          not null, primary key
+#  email      :string(255)      not null
+#  password   :string(255)      not null
+#  username   :string(255)      not null
+#  created_at :timestamptz
+#  updated_at :timestamptz
 #
 # Indexes
 #
-#  unique_email_constraint  (email) UNIQUE
+#  users_email_key     (email) UNIQUE
+#  users_username_key  (username) UNIQUE
 #
 class User < ApplicationRecord
 end

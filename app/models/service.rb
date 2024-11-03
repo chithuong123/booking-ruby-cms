@@ -3,13 +3,17 @@
 # Table name: services
 #
 #  id          :integer          not null, primary key
-#  description :text
+#  description :text             not null
 #  images      :json
-#  name        :string(255)
-#  price       :decimal(, )
-#  created_at  :timestamptz      not null
-#  updated_at  :timestamptz      not null
+#  name        :string(255)      not null
+#  price       :float            not null
+#  created_at  :timestamptz
+#  updated_at  :timestamptz
 #  agency_id   :integer
+#
+# Foreign Keys
+#
+#  services_agency_id_fkey  (agency_id => agencies.id) ON DELETE => nullify ON UPDATE => cascade
 #
 class Service < ApplicationRecord
   mount_uploaders :images, ImageUploader

@@ -8,6 +8,8 @@ Trestle.resource(:agencies, model: Agency) do
   table do
     column :name, link: true
     column :address
+    column :capacity
+    column :lobby
     column :phone_number
     column :image do |agency|
       if agency.image.present?
@@ -20,6 +22,8 @@ Trestle.resource(:agencies, model: Agency) do
   form do |agency|
     text_field :name
     text_area :address
+    text_field :capacity
+    text_field :lobby
     text_field :phone_number
     file_field :image
   end

@@ -4,12 +4,14 @@
 #
 #  id               :integer          not null, primary key
 #  address          :string(255)
+#  capacity         :integer
 #  description      :text
-#  image            :string
+#  image            :string(255)
+#  lobby            :integer
 #  name             :string(255)
 #  phone_number     :string(255)
-#  created_at       :timestamptz      not null
-#  updated_at       :timestamptz      not null
+#  created_at       :timestamptz
+#  updated_at       :timestamptz
 #  administrator_id :integer
 #  user_id          :integer
 #

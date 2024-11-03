@@ -1,7 +1,11 @@
 Trestle.resource(:bookings) do
+  remove_action :new
+  remove_action :edit
+  remove_action :show
+
   menu do
     group :content, priority: :first do
-      item :bookings, icon: "fas fa-building"
+      item :bookings, icon: "fas fa-building", unless: -> { current_user.superadmin? }
     end
   end
 

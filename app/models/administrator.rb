@@ -23,7 +23,7 @@ class Administrator < ApplicationRecord
   after_create :create_associated_agency
   after_destroy :destroy_agency_related
 
-  enum role: [ :superadmin, :agency ]
+  enum role: { superadmin: 0, agency: 1 }
 
   private
 
@@ -35,7 +35,6 @@ class Administrator < ApplicationRecord
 
   def destroy_agency_related
     ActiveRecord::Base.transaction do
-      binding.pry
       if agency.present?
         agency.destroy!
       end

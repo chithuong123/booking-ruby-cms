@@ -29,6 +29,12 @@ gem "carrierwave", "~> 3.0", ">= 3.0.7"
 
 gem "cloudinary", "~> 2.2"
 
+gem "aws-sdk-secretsmanager"
+
+gem 'aws-sdk-s3', '~> 1'
+
+gem 'aws-sdk-ec2', '~> 1'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
